@@ -1,0 +1,25 @@
+ul {
+  list-style: none;
+  counter-reset: chapter;
+}
+
+ul li::before {
+  counter-increment: chapter;
+  content: "Chapter " counter(chapter) ": ";
+  display: inline-block;
+  border: 1px solid gray;
+  border-radius: 5px;
+  background: gray;
+  color: white;
+  padding: .2em;
+  margin: .2em .5em;
+}
+
+li > ul {
+  counter-reset: section;
+}
+
+li > ul li::before {
+  counter-increment: section;
+  content: "Section " counter(section) ": ";
+}
